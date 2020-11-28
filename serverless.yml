@@ -31,6 +31,34 @@ functions:
         path: /post
         method: post
 
+  getAllPost:
+    handler: handler.getAllPost
+    events:
+    - http:
+        path: /posts
+        method: get 
+        
+  getPosts:
+    handler: handler.getPosts
+    events:
+    - http:
+        path: /post/{number}
+        method: get  
+        
+  getPost:
+    handler: handler.getPost
+    events:
+    - http:
+        path: /post{id}
+        method: put 
+
+  deletePost:
+    handler: handler.deletePost
+    events:
+    - http:
+        path: /post{id}
+        method: delete       
+
 resources:
   Resources:
     PostsTable:

@@ -1,7 +1,7 @@
 'use strict';
-import  AWS from 'aws-sdk';
-import uuid from "uuid/v4";
-const db = new AWS.DynamoDB.DocumentClinet({apiVersion: "2012-08-10"})
+const  AWS = require('aws-sdk');
+const { v4: uuidv4 } = require("uuid");
+const db = new AWS.DynamoDB.DocumentClient({apiVersion: "2012-08-10"})
 
 const postsTable = process.env.POSTS_TABLE;
 
@@ -14,7 +14,7 @@ function response(statusCode, message){
 module.exports.createPost = async (event, context, callback) => {
   const reqBody = JSON.parse(event.body);
   const post = {
-    id: uuid(),
+    id: uuidv4(),
     createdAt: new Date().toISOString(),
     userId: 1,
     title: reqBody.title,
