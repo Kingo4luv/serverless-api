@@ -42,21 +42,28 @@ functions:
     handler: handler.getPosts
     events:
     - http:
-        path: /post/{number}
+        path: /posts/number/{number}
         method: get  
         
   getPost:
     handler: handler.getPost
     events:
     - http:
-        path: /post{id}
+        path: /posts/{id}
+        method: get
+        
+  updatePost:
+    handler: handler.updatePost
+    events:
+    - http:
+        path: /posts/update/{id}
         method: put 
 
   deletePost:
     handler: handler.deletePost
     events:
     - http:
-        path: /post{id}
+        path: /posts/delete/{id}
         method: delete       
 
 resources:
